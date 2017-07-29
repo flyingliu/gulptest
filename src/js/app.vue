@@ -1,8 +1,8 @@
 
  
 <template>
-    <div class="app" @click="click">
-        <p>{{a}}</p>
+    <div class="app1" @click="click">
+        <p>{{message}}</p>
         <list-component :msg="message"></list-component>
     </div>
 </template>
@@ -14,7 +14,7 @@
         data : function() {
             return {
                 id      : 23456,
-                message : 'Message'
+                message : 'Message-----------'
             }
         },
         methods : {
@@ -25,3 +25,17 @@
         template : '__template__'
     });
 </script> 
+<style lang="scss">
+$color:red;
+ 
+.app1 {color:#fff; background: red;}
+
+.card {
+    background: $color;
+    
+    > .head {
+        color: $color;
+        background: yellow;
+    }
+}
+</style> 

@@ -13,10 +13,12 @@ var harp = require('harp')
 gulp.task('vue', function() {
     return gulp.src('./src/**/*.vue')
         .pipe(VueModule({
-            debug: true
+            debug: true,
+            loadCSSMethod: 'loadCSS'
         }))
         .pipe(rename({ extname: ".js" }))
-        .pipe(gulp.dest("./dist"));
+        .pipe(gulp.dest("./src"))
+        .pipe(browserSync.stream());
 });
 
 /**
@@ -33,10 +35,12 @@ gulp.task('serve', function() {
                 styles: ['opacity: 0', 'position: absolute']
             }
         });
+        gulp.watch("src/**/*.vue", ['vue']);
         gulp.watch(["./src/**/*.css", "./src/**/*.scss"], function() {
             reload();
         });
-        gulp.watch(["./src/**/*.html", "*.ejs", "./src/*.jade", "*.js", "*.json", "*.md"], function() {
+
+        gulp.watch(["./src/**/*.html", "*.ejs", "./src/**/*.jade", "./src/**/*.js", "*.json", "*.md"], function() {
             reload();
         });
     })
