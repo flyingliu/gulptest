@@ -33,10 +33,10 @@ gulp.task('serve', function() {
                 styles: ['opacity: 0', 'position: absolute']
             }
         });
-        gulp.watch(["./src/**/*.css", "./src/**/*.scss", "*.less"], function() {
+        gulp.watch(["./src/**/*.css", "./src/**/*.scss"], function() {
             reload();
         });
-        gulp.watch(["./src/*.html", "*.ejs", "./src/*.jade", "*.js", "*.json", "*.md"], function() {
+        gulp.watch(["./src/**/*.html", "*.ejs", "./src/*.jade", "*.js", "*.json", "*.md"], function() {
             reload();
         });
     })
