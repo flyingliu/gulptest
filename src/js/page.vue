@@ -1,12 +1,17 @@
-define(function(require, exports, module) {
-    loadCSS({content : ".app1{color:red}"});
-
+<template>
+    <div class="page" @click="click">
+        <p>{{message}}</p>
+    </div>
+</template>
+ 
+<script>
     var Vue           = require("vue");
+ 
     module.exports = Vue.extend({
         data : function() {
             return {
                 id      : 23456,
-                message : 'Message-----------'
+                message : '阿弥陀佛 Message-----------'
             }
         },
         methods : {
@@ -14,6 +19,12 @@ define(function(require, exports, module) {
                 console.log("click()");
             }
         },
-        template : '<div class="app1" @click="click"><p>{{message}}</p></div>'
+        template : '__template__'
     });
-});
+</script> 
+<style lang="scss">
+$color:#900;
+
+.page { color:$color;}
+
+</style> 

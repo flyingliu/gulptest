@@ -1,6 +1,13 @@
-$c:#ff0;
+$red:#DC3522;
+$c:#d9cb9e;
+$gray:#374140;
+$black:#000;
 body {
-    color: $c;
-    background: #000;
-    font-size: 20px;
+    color: $gray;
+    background-size: cover;
+    font-size: 14px;
+}
+
+h1 {
+    color: $red;
 }

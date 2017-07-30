@@ -24,23 +24,22 @@ require.config({
     paths: {
         "jquery": "https://cdn.bootcss.com/jquery/3.2.1/jquery.min",
         "vue": "https://cdn.bootcss.com/vue/2.4.2/vue.min",
-        "app": "js/app"
+        "app": "js/app",
+        "pagebar": "js/page"
     }
 });
 
 
-require(["jquery", "vue", "app"], function($, Vue, App) {
+require(["jquery", "vue", "app", "pagebar"], function($, Vue, App, Pagebar) {
     console.log("App", App);
     $(function() {
         var app = new Vue({
             el: "#app",
             data: {},
             components: {
-                'my-component': App
+                'my-component': App,
+                'page-bar': Pagebar
             }
-
         });
     });
-
-
 })

@@ -3,7 +3,6 @@
 <template>
     <div class="app1" @click="click">
         <p>{{message}}</p>
-        <list-component :msg="message"></list-component>
     </div>
 </template>
  
@@ -27,15 +26,7 @@
 </script> 
 <style lang="scss">
 $color:red;
- 
-.app1 {color:#fff; background: red;}
 
-.card {
-    background: $color;
-    
-    > .head {
-        color: $color;
-        background: yellow;
-    }
-}
+.app1 { color:$color;}
+
 </style> 

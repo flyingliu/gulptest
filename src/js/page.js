@@ -1,12 +1,12 @@
 define(function(require, exports, module) {
-    loadCSS({content : ".app1{color:red}"});
+    loadCSS({content : ".page{color:#900}"});
 
     var Vue           = require("vue");
     module.exports = Vue.extend({
         data : function() {
             return {
                 id      : 23456,
-                message : 'Message-----------'
+                message : '阿弥陀佛 Message-----------'
             }
         },
         methods : {
@@ -14,6 +14,6 @@ define(function(require, exports, module) {
                 console.log("click()");
             }
         },
-        template : '<div class="app1" @click="click"><p>{{message}}</p></div>'
+        template : '<div class="page" @click="click"><p>{{message}}</p></div>'
     });
 });
