@@ -6,7 +6,7 @@ define(function(require, exports, module) {
         data : function() {
             return {
                 id      : 23456,
-                message : '阿弥陀佛 Message-----------'
+                message : '阿弥陀佛 Me'
             }
         },
         methods : {

@@ -13,7 +13,7 @@
         data : function() {
             return {
                 id      : 23456,
-                message : 'Message-----------'
+                message : 'Message-----555------'
             }
         },
         methods : {

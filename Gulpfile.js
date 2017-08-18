@@ -6,9 +6,12 @@ var VueModule = require('gulp-vue-module');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var deploy = require('gulp-gh-pages');
+var sass = require('gulp-sass');
 var cp = require('child_process');
-var harp = require('harp')
-
+var harp = require('harp');
+var browserslist = require('browserslist');
+var autoprefixer = require('autoprefixer');
+var browsers = browserslist('last 2 version, > 0.1%');
 
 gulp.task('vue', function() {
     return gulp.src('./src/**/*.vue')
@@ -35,12 +38,12 @@ gulp.task('serve', function() {
                 styles: ['opacity: 0', 'position: absolute']
             }
         });
-        gulp.watch("src/**/*.vue", ['vue']);
+
         gulp.watch(["./src/**/*.css", "./src/**/*.scss"], function() {
             reload();
         });
 
-        gulp.watch(["./src/**/*.html", "*.ejs", "./src/**/*.jade", "./src/**/*.js", "*.json", "*.md"], function() {
+        gulp.watch(["./src/**/*.html", "*.vue", "./src/**/*.jade", "./src/**/*.js", "*.json", "./src/**/*.md"], function() {
             reload();
         });
     })
@@ -49,6 +52,7 @@ gulp.task('serve', function() {
 gulp.task('sass', function() {
     return gulp.src("src/**/*.scss")
         .pipe(sass())
+        .pipe(autoprefixer(browsers))
         .pipe(browserSync.stream());
 });
 
@@ -79,7 +83,7 @@ gulp.task('deploy', ['build'], function() {
 });
 
 
-gulp.task('default', ['vue', 'serve']);
+gulp.task('default', ['serve','vue']);
 
 
 
