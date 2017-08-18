@@ -72,7 +72,7 @@ gulp.task('browser-sync', function() {
 })
 
 gulp.task('deploy', ['build'], function() {
-    gulp.src('./dist/**/*')
+    gulp.src('./dist/src/**/*')
         .pipe(deploy())
 })
 
