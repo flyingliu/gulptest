@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 node_modules
+=======
+dist
+.publish
+>>>>>>> 8d8907b5909955137fc6b780221cd3d4c638be16
