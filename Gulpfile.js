@@ -10,14 +10,15 @@ var cp = require('child_process')
 var harp = require('harp')
 
 
-
 gulp.task('vue', function() {
     return gulp.src('./src/**/*.vue')
         .pipe(VueModule({
             debug: true,
             loadCSSMethod: 'loadCSS'
         }))
-        .pipe(rename({ extname: '.js' }))
+        .pipe(rename({
+            extname: '.js'
+        }))
         .pipe(gulp.dest('./src'))
         .pipe(browserSync.stream())
 })
@@ -57,7 +58,9 @@ gulp.task('sass', function() {
 
 
 gulp.task('build', function(done) {
-    cp.exec('harp compile . dist', { stdio: 'inherit' })
+    cp.exec('harp compile . dist', {
+            stdio: 'inherit'
+        })
         .on('close', done)
 })
 
@@ -68,7 +71,7 @@ gulp.task('browser-sync', function() {
 })
 
 gulp.task('deploy', ['build'], function() {
-    gulp.src("./dist/**/*")
+    gulp.src('./dist/src/**/*')
         .pipe(deploy());
 });
 
