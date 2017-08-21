@@ -2,17 +2,24 @@ doctype
 html
     head
         title= title
+        meta(name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1")
         link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="//at.alicdn.com/t/font_390780_of1l125l9tem6lxr.css") 
         script(src="https://cdn.bootcss.com/require.js/2.3.4/require.min.js")
     
     body
         header
             nav
-                li abc
-        .main
+                li 
+                    a(href="#") 我的简历
+                li 
+                    a(href="#") 工作技能
+                li 
+                    a(href="#") 联系方式
+        main
             != yield
 
         footer
-            p Copyright (c) foobar
+            p Copyright  Liufeilai  &copy; 2017
         canvas#canvas
         script(src="js/main.js")

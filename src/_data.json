@@ -1,7 +1,27 @@
 {
     "index": {
         "title": "Hello World.",
-        "date": "2013-02-28"
+        "links": [{
+                "name": "github",
+                "icon": "icon-yuan-github",
+                "url": "https://github.com/flyingliu"
+            },
+            {
+                "name": "blog",
+                "icon": "icon-blog2",
+                "url": "https://user.qzone.qq.com/63480013/"
+            },
+            {
+                "name": "douban",
+                "icon": "icon-douban",
+                "url": "https://www.douban.com/people/guolaiwan/"
+            },
+            {
+                "name": "zhihu",
+                "icon": "icon-zhihu",
+                "url": "https://www.zhihu.com/people/liu-fei-lai"
+            }
+        ]
     },
     "hello-brazil": {
         "title": "Hello Brazil.",

@@ -2,26 +2,127 @@ $red:#DC3522;
 $c:#d9cb9e;
 $gray:#374140;
 $black:#000;
+$font: ProximaNova,
+Sans-Serif;
 html,
 body {
     padding: 0;
     margin: 0;
-    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
 }
-body {
-    background: url(../images/bg.jpg) no-repeat right 0 ;
-    background-size: auto 100%;
-	animation: panoramic 100s linear infinite alternate;
-	animation-play-state: paused;
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font: 14px/1.8 $font;
+    color: rgba(#fff, .8);
+    font-weight: 200;
+    text-decoration: none;
+}
+
+a {
     &:hover {
-        animation-play-state: running;
+        color: $c;
     }
 }
 
-@keyframes panoramic {
-	to { background-position: 0 100%; }
+.panoramic:hover,
+.panoramic:focus {
+    animation-play-state: running;
 }
 
+@keyframes panoramic {
+    to {
+        background-position: 100% 0;
+    }
+}
+
+body {
+    z-index: 9;
+    background: url(../images/bg1.jpg) no-repeat center center;
+    background-size: cover;
+    border-top: 3px solid $gray;
+    animation: panoramic 10s linear infinite alternate;
+    animation-play-state: paused;
+    >header {
+        height: 100px;
+        nav {
+            width: 100%;
+            text-align: center;
+            li {
+                display: inline-block;
+                border: 1px solid #374140;
+                padding: 5px 10px;
+            }
+        }
+    }
+    >footer {
+        height: 100px;
+        text-align: center;
+        p {
+            padding: 40px 0 0 0;
+            opacity: .4;
+        }
+    }
+    >main {
+        width: 100%;
+        height: calc(100% - 200px);
+        position: relative;
+        i {
+            &.avatar {
+                position: absolute;
+                width: 144px;
+                height: 144px;
+                background: url(../images/avatar.jpg) no-repeat;
+                background-size: cover;
+                border-radius: 50%;
+                margin: auto;
+                left: 0;
+                right: 0;
+                box-shadow: 0 0 0 10px rgba($c, .1);
+            }
+        }
+    }
+}
+
+.index {
+    >article {
+        padding: 160px 0 0 0;
+        text-align: center;
+        h1 {
+            font: 30px/80px arial;
+            color: transparent;
+            background: url(../images/me.png) no-repeat center 0;
+            background-size: auto 80px;
+        }
+    }
+    .links {
+        ul {
+            text-align: center;
+            padding: 20px;
+            li {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                margin: 0 10px;
+                &:hover {
+                    color: $c;
+                    border-color: $c;
+                    a {
+                        color: $c;
+                    }
+                }
+                a {
+                    font: 24px/32px iconfont;
+                }
+            }
+        }
+    }
+}
 
 //圣杯布局
 body.sb {
@@ -36,19 +137,30 @@ body.sb {
         height: 100px;
         background: #000;
     }
-    .main {
-        display: flex;
-        flex: 1;
+    main {
+        width: 100%;
+        height: calc(100% - 200px);
+        i {
+            &.avatar {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: url(../images/avatar.jpg) no-repeat red;
+            }
+        }
     }
 }
 
-h1 {
-    color: $red;
+@for $i from 1 to 7 {
+    h#{$i} {
+        color: $red;
+    }
 }
 
 #canvas {
     z-index: 1;
     position: fixed;
     bottom: 0;
-    
+    pointer-events: none;
+    z-index: -1;
 }
