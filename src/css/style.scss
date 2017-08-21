@@ -41,19 +41,20 @@ a {
 
 body {
     z-index: 9;
-    background: url(../images/bg1.jpg) no-repeat center center;
+    background: url(../images/bg1.jpg) no-repeat center center #000;
     background-size: cover;
     border-top: 3px solid $gray;
     animation: panoramic 10s linear infinite alternate;
     animation-play-state: paused;
     >header {
-        height: 100px;
+        height: 60px;
         nav {
             width: 100%;
             text-align: center;
+            padding-top: 10px;
             li {
                 display: inline-block;
-                border: 1px solid #374140;
+                border: 0px solid #374140;
                 padding: 5px 10px;
             }
         }
@@ -63,12 +64,12 @@ body {
         text-align: center;
         p {
             padding: 40px 0 0 0;
-            opacity: .4;
+            opacity: .8;
         }
     }
     >main {
         width: 100%;
-        height: calc(100% - 200px);
+        height: calc(100% - 160px);
         position: relative;
         i {
             &.avatar {
@@ -87,7 +88,63 @@ body {
     }
 }
 
+.about {
+    height: 100%;
+    >header {
+        background: $gray;
+        height: 50px;
+        padding: 0 60px;
+        position: relative;
+        i {
+            &.logo {
+                width: 30px;
+                height: 30px;
+                background: url(../images/avatar.jpg) no-repeat;
+                background-size: cover;
+                border-radius: 50%;
+                left: 20px;
+                top: 10px;
+                display: inline-block;
+                position: absolute;
+            }
+        }
+        span {
+            font: 24px/50px $font;
+        }
+    }
+    >main {
+        margin: 20px 0px;
+        padding: 0 60px;
+        overflow: hidden;
+        max-height: calc(100% - 110px);
+        dl {
+            dd {
+                border-bottom: 1px solid rgba($c, .3);
+                padding: 5px 0 10px 0;
+                &:hover {
+                    background: #000000;
+                }
+                &:last-child {
+                    border-bottom: 0;
+                }
+                time {
+                    font-size: 10px;
+                }
+                >i {
+                    width: 32px;
+                    height: 32px;
+                    position: absolute;
+                    text-align: right;
+                    left: -50px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
 .index {
+    padding: 40px 0 0 0;
     >article {
         padding: 160px 0 0 0;
         text-align: center;
@@ -125,35 +182,10 @@ body {
 }
 
 //圣杯布局
-body.sb {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    >header {
-        height: 100px;
-        background: #000;
-    }
-    >footer {
-        height: 100px;
-        background: #000;
-    }
-    main {
-        width: 100%;
-        height: calc(100% - 200px);
-        i {
-            &.avatar {
-                position: absolute;
-                width: 100px;
-                height: 100px;
-                background: url(../images/avatar.jpg) no-repeat red;
-            }
-        }
-    }
-}
-
 @for $i from 1 to 7 {
     h#{$i} {
-        color: $red;
+        color: rgba(#fff, 1);
+        font-weight: 400;
     }
 }
 

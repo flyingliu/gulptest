@@ -25,6 +25,7 @@ require.config({
     paths: {
         "jquery": "https://cdn.bootcss.com/jquery/3.2.1/jquery.min",
         "vue": "https://cdn.bootcss.com/vue/2.4.2/vue.min",
+        "iscroll": "https://cdn.bootcss.com/iScroll/5.2.0/iscroll",
         "app": "js/app",
         "pagebar": "js/page",
         "waterWave": "cdn/waterWave"
@@ -32,9 +33,11 @@ require.config({
 });
 
 
-require(["jquery", "vue", "app", "pagebar", "waterWave"], function($, Vue, App, Pagebar, waterWave) {
+require(["jquery", "vue", "app", "pagebar", "waterWave", "iscroll"], function($, Vue, App, Pagebar, waterWave, iScroll) {
     console.log("App", App);
     $(function() {
+
+
         var app = new Vue({
             el: "#app",
             data: {},
@@ -43,6 +46,10 @@ require(["jquery", "vue", "app", "pagebar", "waterWave"], function($, Vue, App, 
                 // 'page-bar': Pagebar
             },
             mounted: function() {
+                if ($(".scroll").length > 0) {
+                    var scroll = new iScroll($(".scroll")[0]);
+                }
+
                 waterWave('canvas', {
                     //canvs宽高
                     cW: 2000,

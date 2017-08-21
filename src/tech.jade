@@ -6,6 +6,6 @@
         dl
             - for item in data
                 dd
-                    time= item.time
-                    h5= item.company
+                    i(class="iconfont #{item.icon}")
+                    h5= item.type
                     p= item.work
