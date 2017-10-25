@@ -1,5 +1,7 @@
-console.log("m123sa");
+require("/js/m2.js",fn => {
 
-let abc = `lorem
-    <p>--</p>
-`
+    
+    let abc = fn();
+    
+    console.log(abc);
+})
