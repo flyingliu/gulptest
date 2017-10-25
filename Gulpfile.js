@@ -12,10 +12,33 @@ var deploy = require('gulp-gh-pages')
 var runSequence = require('gulp-sequence')
 var cp = require('child_process')
 var harp = require('harp')
+var amdOptimize = require("amd-optimize");
+var concat = require('gulp-concat');
 const babel = require('gulp-babel');
 
 const DEV = "./src"
 const PRO = "./dist"
+
+gulp.task('main', function() {
+    return gulp.src([`${DEV}/**/*.js`])
+        .pipe(amdOptimize("maina", {
+            baseUrl: DEV,
+            paths: {
+                "jquery": "cdn/jquery.min",
+                "vue": "cdn/vue.min",
+                "iscroll": "cdn/iscroll",
+                "waterWave": "cdn/waterWave",
+                "maina": `/js/main`
+            },
+            shim: {
+            }
+        }))
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest(PRO));
+});
+
+
+
 
 /**
  * Serve the Harp Site from the src directory
