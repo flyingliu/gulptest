@@ -48,7 +48,7 @@ gulp.task('serve', function () {
         server: {
             baseDir: PRO,
         },
-        port: "99",
+        port: "5000",
         ui: false,
         notify: false
     });
@@ -81,9 +81,9 @@ gulp.task('jade', function () {
 
 gulp.task('js', () =>
     gulp.src(`${DEV}/**/*.js`)
-    .pipe(babel({
-        presets: ['env']
-    }))
+    // .pipe(babel({
+    //     presets: ['env']
+    // }))
     .pipe(gulp.dest(PRO))
     .pipe(reload({
         stream: true
