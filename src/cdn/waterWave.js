@@ -62,7 +62,7 @@
         /*******
         全局变量
         *******/
-        var canvas = null,
+        var canvasSreen = null,
             ctx = null,
             W = null,
             H = null,
@@ -272,11 +272,12 @@
         var initSetup = function (selector, userOptions) {
             mergeOptions(userOptions, options);
 
-            canvas = document.getElementById(selector);
-            ctx = canvas.getContext('2d');
+            canvasSreen = document.getElementById(selector);
+            console.log(canvasSreen);
+            ctx = canvasSreen.getContext('2d');
 
-            canvas.width = W = options.cW;
-            canvas.height = H = options.cH;
+            canvasSreen.width = W = options.cW;
+            canvasSreen.height = H = options.cH;
 
             vPos = options.vertexsNum / 2;
 
@@ -287,7 +288,7 @@
             }
 
             //鼠标交互
-            mouseInteract(canvas);
+            mouseInteract(canvasSreen);
 
             //是否支持鼠标滚动
             if (options.isMouseWhell) {
