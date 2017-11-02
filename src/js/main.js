@@ -18,9 +18,9 @@ require(["jquery", "vue",   "waterWave", "iscroll"], function($, Vue, waterWave,
         var app = new Vue({
             el: "#app",
             data: {
-                code:["","2","","","",""]
+                code:new Array(6)
             },
-            template:`<div><input type="number" v-model="code[index]" maxlength=1 v-for="(i,index) in code">{{codeStr}}</div>`,
+            template:`<div><input type="text" v-model="code[index]"  maxlength="1" v-for="(i,index) in code">{{codeStr}}</div>`,
             components: {
                 // 'my-component': App,
                 // 'page-bar': Pagebar
