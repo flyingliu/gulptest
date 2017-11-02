@@ -17,10 +17,19 @@ require(["jquery", "vue",   "waterWave", "iscroll"], function($, Vue, waterWave,
         console.log("---");
         var app = new Vue({
             el: "#app",
-            data: {},
+            data: {
+                code:["","2","","","",""]
+            },
+            template:`<div><input type="number" v-model="code[index]" maxlength=1 v-for="(i,index) in code">{{codeStr}}</div>`,
             components: {
                 // 'my-component': App,
                 // 'page-bar': Pagebar
+            },
+            computed: {
+                codeStr: function(){
+                    var str = this.code.join("");
+                    return str;
+                }
             },
             mounted: function() {
                 if ($(".scroll").length > 0) {
