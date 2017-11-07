@@ -4,6 +4,8 @@ require.config({
     paths: {
         "jquery": "https://cdn.bootcss.com/jquery/3.2.1/jquery.min",
         "vue": "https://cdn.bootcss.com/vue/2.4.2/vue.min",
+        "vueRouter": "https://cdn.bootcss.com/vue-router/2.7.0/vue-router",
+        "vuex":"https://cdn.bootcss.com/vuex/2.4.1/vuex",
         "iscroll": "https://cdn.bootcss.com/iScroll/5.2.0/iscroll",
         "waterWave": "cdn/waterWave"
     }
@@ -22,7 +24,7 @@ require(["jquery", "vue",   "waterWave", "iscroll"], function($, Vue, waterWave,
             },
             template:`<div><input type="text" v-model="code[index]"  maxlength="1" v-for="(i,index) in code">{{codeStr}}</div>`,
             components: {
-                // 'my-component': App,
+                // 'my-component':App,
                 // 'page-bar': Pagebar
             },
             computed: {
