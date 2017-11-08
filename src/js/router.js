@@ -9,6 +9,7 @@ require.config({
     'iscroll': 'https://cdn.bootcss.com/iScroll/5.2.0/iscroll',
     'waterWave': 'cdn/waterWave',
     'vuelidation': 'cdn/vuelidation',
+    'SimpleVueValidation': 'cdn/SimpleVueValidation',
     'vuex': 'https://cdn.bootcss.com/vuex/2.4.1/vuex',
     'user': 'js/user'
   }
@@ -19,8 +20,6 @@ require(['jquery', 'vue', 'vuex', 'vueRouter', 'user', 'vuelidation'], function 
   Vue.use(Vuelidation)
   Vue.use(Vuex)
   console.log('---', User)
-
-
 
   const store = new Vuex.Store({
     state: {

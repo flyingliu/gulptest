@@ -1,46 +1,45 @@
-define(['vuex', 'vue' ], function (vuex, Vue) {
+define(['vuex', 'vue', 'SimpleVueValidation' ], function (vuex, Vue, SimpleVueValidation) {
   'use strict'
+  var Validator = SimpleVueValidation.Validator
+
+  Vue.use(SimpleVueValidation)
+
   console.log(vuex.mapState)
   let user = {
     props: ['id'],
     template: `<div>
-        <input type='text' v-model='name' />
-        <div v-if='$vuelidation.error("name")'>{{ $vuelidation.error('name') }}</div>
-        <button  :disabled="$vuelidation.errors()" @click="submit" >Submit</button>
-
+          <div class="layout-form">
+    <div class="form-group" :class="{error: validation.hasError('email')}">
+      <div class="label">* Email</div>
+      <div class="content"><input type="text" class="form-control" v-model="email"/></div>
+      <div class="message">{{ validation.firstError('email') }}</div>
+    </div>
+    <div class="form-group">
+      <div class="actions">
+        <button type="button" class="btn btn-primary" @click="submit">Submit</button>
+      </div>
+    </div>
+  </div>
     </div>`,
-    data: function (params) {
+    data: function () {
       return {
-        name: ''
+        email: ''
       }
     },
-    vuelidation: {
-      data: {
-        name: {
-          required: true
-        }
+    validators: {
+      email: function (value) {
+        return Validator.value(value).required().email()
       }
     },
-
-    computed: vuex.mapState(['count']),
-    //   components: {
-    //   validator,
-    // },
     methods: {
-      add: function (params) {
-        this.$store.commit('increment')
-      },
-      submit() {
-        console.log(this.$vuelidation)
-        if (this.$vuelidation.valid()) {
-          console.log(`Hello, ${this.name}!`)
-        }
+      submit: function () {
+        this.$validate()
+          .then(function (success) {
+            if (success) {
+              alert('Validation succeeded!')
+            }
+          })
       }
-
-    },
-    mounted() {
-      console.log('======')
-      console.log(this)
     }
 
   }
