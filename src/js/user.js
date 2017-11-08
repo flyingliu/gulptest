@@ -1,44 +1,46 @@
-define(['vuex'], function (vuex) {
+define(['vuex', 'vue' ], function (vuex, Vue) {
   'use strict'
-
   console.log(vuex.mapState)
   let user = {
     props: ['id'],
     template: `<div>
-      <validator name="validation1">
-      <form novalidate>
-        <div class="username-field">
-          <label for="username">username:</label>
-          <input id="username" type="text" v-validate:username="['required']">
-        </div>
-        <div class="comment-field">
-          <label for="comment">comment:</label>
-          <input id="comment" type="text" v-validate:comment="{ maxlength: 256 }">
-        </div>
-        <div class="errors">
-          <p v-if="$validation1.username.required">Required your name.</p>
-          <p v-if="$validation1.comment.maxlength">Your comment is too long.</p>
-        </div>
-        <input type="submit" value="send" v-if="$validation1.valid">
-      </form>
-    </validator>
-    
+        <input type='text' v-model='name' />
+        <div v-if='$vuelidation.error("name")'>{{ $vuelidation.error('name') }}</div>
+        <button  :disabled="$vuelidation.errors()" @click="submit" >Submit</button>
+
     </div>`,
     data: function (params) {
       return {
-        username: '',
-        comment: ''
+        name: ''
       }
     },
+    vuelidation: {
+      data: {
+        name: {
+          required: true
+        }
+      }
+    },
+
     computed: vuex.mapState(['count']),
+    //   components: {
+    //   validator,
+    // },
     methods: {
       add: function (params) {
         this.$store.commit('increment')
+      },
+      submit() {
+        console.log(this.$vuelidation)
+        if (this.$vuelidation.valid()) {
+          console.log(`Hello, ${this.name}!`)
+        }
       }
 
     },
-    mounted () {
-      console.log("======");
+    mounted() {
+      console.log('======')
+      console.log(this)
     }
 
   }

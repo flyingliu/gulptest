@@ -8,16 +8,19 @@ require.config({
     'vuex': 'https://cdn.bootcss.com/vuex/2.4.1/vuex',
     'iscroll': 'https://cdn.bootcss.com/iScroll/5.2.0/iscroll',
     'waterWave': 'cdn/waterWave',
+    'vuelidation': 'cdn/vuelidation',
     'vuex': 'https://cdn.bootcss.com/vuex/2.4.1/vuex',
     'user': 'js/user'
   }
 })
 
-require(['jquery', 'vue', 'vuex', 'vueRouter', 'user', 'validator'], function ($, Vue, Vuex, VueRouter, User, VueValidator) {
+require(['jquery', 'vue', 'vuex', 'vueRouter', 'user', 'vuelidation'], function ($, Vue, Vuex, VueRouter, User, Vuelidation) {
   Vue.use(VueRouter)
-  Vue.use(VueValidator)
+  Vue.use(Vuelidation)
   Vue.use(Vuex)
   console.log('---', User)
+
+
 
   const store = new Vuex.Store({
     state: {
